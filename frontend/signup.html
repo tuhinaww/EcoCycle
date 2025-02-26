@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>EcoCycle - Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-[#111714] dark group/design-root overflow-x-hidden"
+      style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#29382f] px-10 py-3">
+          <div class="flex items-center gap-4 text-white">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <a href="homepage.html" class="text-white text-lg font-bold leading-tight tracking-[-0.015em] text-[#1fe06f]">EcoCycle</a>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal" href="wastesort.html">Waste Sorting</a>
+              <a class="text-white text-sm font-medium leading-normal" href="marketplace.html">Marketplace</a>
+              <a class="text-white text-sm font-medium leading-normal" href="minigame.html">Play & Learn</a>
+              <a class="text-white text-sm font-medium leading-normal" href="login.html">Log In</a>
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1fe06f] text-[#111714] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Join Us</span>
+            </button>
+          </div>
+        </header>
+        
+        <!-- Signup Content -->
+        <div class="flex flex-1 px-4 py-12 md:px-10 lg:px-40">
+          <div class="flex w-full max-w-[960px] mx-auto">
+            <!-- Left Column - Form -->
+            <div class="flex-1 p-6 md:p-10">
+              <div class="mb-8">
+                <h1 class="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em] mb-3">Join EcoCycle Today</h1>
+                <p class="text-[#9eb7a9] text-base font-normal leading-normal">
+                  Create your account and start your sustainable journey with us.
+                </p>
+              </div>
+              
+              <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="firstName" class="block text-white text-sm font-medium mb-2">First Name</label>
+                    <input 
+                      type="text" 
+                      id="firstName" 
+                      class="w-full h-12 px-4 rounded-xl bg-[#1c2621] border border-[#29382f] text-white focus:outline-none focus:border-[#1fe06f] focus:ring-1 focus:ring-[#1fe06f]" 
+                      placeholder="Enter your first name"
+                    />
+                  </div>
+                  <div>
+                    <label for="lastName" class="block text-white text-sm font-medium mb-2">Last Name</label>
+                    <input 
+                      type="text" 
+                      id="lastName" 
+                      class="w-full h-12 px-4 rounded-xl bg-[#1c2621] border border-[#29382f] text-white focus:outline-none focus:border-[#1fe06f] focus:ring-1 focus:ring-[#1fe06f]" 
+                      placeholder="Enter your last name"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label for="email" class="block text-white text-sm font-medium mb-2">Email Address</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    class="w-full h-12 px-4 rounded-xl bg-[#1c2621] border border-[#29382f] text-white focus:outline-none focus:border-[#1fe06f] focus:ring-1 focus:ring-[#1fe06f]" 
+                    placeholder="Enter your email address"
+                  />
+                </div>
+                
+                <div>
+                  <label for="password" class="block text-white text-sm font-medium mb-2">Password</label>
+                  <input 
+                    type="password" 
+                    id="password" 
+                    class="w-full h-12 px-4 rounded-xl bg-[#1c2621] border border-[#29382f] text-white focus:outline-none focus:border-[#1fe06f] focus:ring-1 focus:ring-[#1fe06f]" 
+                    placeholder="Create a strong password"
+                  />
+                  <p class="mt-2 text-xs text-[#9eb7a9]">Password must be at least 8 characters long and include numbers and symbols.</p>
+                </div>
+                
+                <div>
+                  <label for="confirmPassword" class="block text-white text-sm font-medium mb-2">Confirm Password</label>
+                  <input 
+                    type="password" 
+                    id="confirmPassword" 
+                    class="w-full h-12 px-4 rounded-xl bg-[#1c2621] border border-[#29382f] text-white focus:outline-none focus:border-[#1fe06f] focus:ring-1 focus:ring-[#1fe06f]" 
+                    placeholder="Confirm your password"
+                  />
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input
+                      id="terms"
+                      type="checkbox"
+                      class="h-5 w-5 rounded border-[#29382f] bg-[#1c2621] text-[#1fe06f] focus:ring-[#1fe06f] focus:ring-offset-0"
+                    />
+                  </div>
+                  <label for="terms" class="ml-3 text-sm text-[#9eb7a9]">
+                    I agree to the <a href="#" class="text-[#1fe06f] hover:underline">Terms of Service</a> and <a href="#" class="text-[#1fe06f] hover:underline">Privacy Policy</a>
+                  </label>
+                </div>
+                
+                <button
+                  type="submit"
+                  class="w-full flex justify-center items-center h-12 px-4 bg-[#1fe06f] text-[#111714] text-base font-bold rounded-xl hover:bg-opacity-90 transition-all duration-300"
+                >
+                  Create Account
+                </button>
+                
+                <div class="text-center">
+                  <p class="text-[#9eb7a9] text-sm">
+                    Already have an account? <a href="login.html" class="text-[#1fe06f] hover:underline">Log in</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+            
+            <!-- Right Column - Image -->
+            <div class="hidden md:flex md:w-2/5 bg-cover bg-center rounded-xl overflow-hidden"
+                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://cdn.usegalileo.ai/sdxl10/9861cb32-737d-46e8-a291-3f79e2650ba3.png");'>
+              <div class="p-8 flex flex-col justify-end">
+                <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                  <h3 class="text-white text-xl font-bold mb-2">Join our community</h3>
+                  <p class="text-white text-sm">Together, we can make a difference for our planet through better recycling habits.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="bg-[#0c100d] py-8 px-10 md:px-20 lg:px-40">
+          <div class="max-w-[960px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="size-4">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                        fill="#1fe06f"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h2 class="text-white text-lg font-bold">EcoCycle</h2>
+                </div>
+                <p class="text-[#9eb7a9] text-sm">Reduce, Reuse, Recycle.</p>
+              </div>
+              <div class="md:col-span-3">
+                <h3 class="text-white font-bold mb-4">Project made by:</h3>
+                <ul class="text-[#9eb7a9] text-sm space-y-2">
+                  <li>Tuhina Tripathi (RA2211003010423) - <a href="mailto:tt4102@srmist.edu.in" class="hover:text-[#1fe06f]">tt4102@srmist.edu.in</a></li>
+                  <li>Akanksha Rathore (RA2211003010396) - <a href="mailto:ar2846@srmist.edu.in" class="hover:text-[#1fe06f]">ar2846@srmist.edu.in</a></li>
+                  <li class="text-[#1fe06f] font-medium">Project Name: Ecocycle: revive, reuse, recycle</li>
+                </ul>
+              </div>
+            </div>
+            <div class="border-t border-[#29382f] mt-8 pt-6 text-[#9eb7a9] text-sm flex flex-col md:flex-row justify-between items-center">
+              <div class="mb-4 md:mb-0">© 2025 EcoCycle. All rights reserved.</div>
+              <div class="flex gap-6">
+                <a href="#" class="hover:text-[#1fe06f]">Privacy Policy</a>
+                <a href="#" class="hover:text-[#1fe06f]">Terms of Service</a>
+                <a href="#" class="hover:text-[#1fe06f]">Cookie Policy</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

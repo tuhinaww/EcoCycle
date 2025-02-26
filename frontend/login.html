@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>EcoCycle - Login</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-[#111714] dark group/design-root overflow-x-hidden"
+      style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#29382f] px-10 py-3">
+          <div class="flex items-center gap-4 text-white">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <a href="homepage.html" class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">EcoCycle</a>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal text-[#1fe06f]" href="wastesort.html">Waste Sorting</a>
+              <a class="text-white text-sm font-medium leading-normal text-[#1fe06f]" href="marketplace.html">Marketplace</a>
+              <a class="text-white text-sm font-medium leading-normal text-[#1fe06f]" href="minigame.html">Play & Learn</a>
+              <a class="text-white text-sm font-medium leading-normal text-[#1fe06f]" href="login.html">Log In</a>
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1fe06f] text-[#111714] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <a href="signup.html"><span class="truncate">Join Us</span></a>
+            </button>
+          </div>
+        </header>
+        
+        <div class="px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <!-- Login Container -->
+            <div class="flex flex-col md:flex-row gap-10 items-center justify-between py-12">
+              <!-- Left Column - Login Form -->
+              <div class="flex flex-col w-full md:w-1/2 max-w-md">
+                <h1 class="text-white text-3xl font-black leading-tight tracking-[-0.033em] mb-6">
+                  Welcome Back
+                </h1>
+                <p class="text-[#9eb7a9] text-base mb-8">
+                  Log in to track your recycling progress, redeem eco-points, and continue making a positive impact on our planet.
+                </p>
+
+                <form class="flex flex-col gap-5">
+                  <div class="flex flex-col gap-2">
+                    <label for="email" class="text-white text-sm font-medium">Email</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      class="bg-[#172119] border border-[#29382f] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#1fe06f]" 
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                  
+                  <div class="flex flex-col gap-2">
+                    <div class="flex justify-between">
+                      <label for="password" class="text-white text-sm font-medium">Password</label>
+                      <a href="#" class="text-[#1fe06f] text-sm">Forgot password?</a>
+                    </div>
+                    <input 
+                      type="password" 
+                      id="password" 
+                      class="bg-[#172119] border border-[#29382f] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#1fe06f]" 
+                      placeholder="••••••••"
+                    />
+                  </div>
+                  
+                  <div class="flex items-center gap-2 mt-2">
+                    <input type="checkbox" id="remember" class="rounded border-[#29382f] bg-[#172119] text-[#1fe06f] focus:ring-[#1fe06f]"/>
+                    <label for="remember" class="text-[#9eb7a9] text-sm">Remember me for 30 days</label>
+                  </div>
+                  
+                  <button 
+                    type="submit" 
+                    class="flex cursor-pointer items-center justify-center h-12 px-6 mt-4 bg-[#1fe06f] text-[#111714] text-base font-bold rounded-xl"
+                  >
+                    Log in
+                  </button>
+                  
+                  <div class="flex items-center gap-4 my-2">
+                    <div class="h-px bg-[#29382f] flex-1"></div>
+                    <span class="text-[#9eb7a9] text-sm">or continue with</span>
+                    <div class="h-px bg-[#29382f] flex-1"></div>
+                  </div>
+                  
+                  <div class="grid grid-cols-2 gap-4">
+                    <button 
+                      type="button" 
+                      class="flex items-center justify-center gap-2 h-12 px-6 bg-[#172119] border border-[#29382f] text-white text-sm font-medium rounded-xl"
+                    >
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                      Google
+                    </button>
+                    <button 
+                      type="button" 
+                      class="flex items-center justify-center gap-2 h-12 px-6 bg-[#172119] border border-[#29382f] text-white text-sm font-medium rounded-xl"
+                    >
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.216-.02-.217-.03-.01-.06-.01-.14-.01-.22 0-.95.43-1.99 1.03-2.68.59-.67 1.73-1.3 2.86-1.37.11.01.21.03.21.05.01.04.01.09.01.17zm4.98 15.07c-.03.59-.45 1.92-.98 2.78-.52.84-1.39 1.93-2.56 1.93-1.23 0-1.77-.79-3.26-.79-1.51 0-2.07.77-3.3.77-1.15 0-2.13-1.06-2.65-1.91-1.22-1.88-1.78-4.64-.74-6.68.53-1.01 1.52-1.77 2.58-1.77 1.04 0 1.96.76 2.91.76.96 0 1.77-.8 3.01-.8 1.08 0 2.17.67 2.7 1.84-.07.04-1.62.9-1.6 2.8.03 2.07 1.98 2.79 2.01 2.81-.02.08-.35 1.09-.92 2.16z"/>
+                      </svg>
+                      Apple
+                    </button>
+                  </div>
+                </form>
+                
+                <p class="text-[#9eb7a9] text-sm text-center mt-8">
+                  Don't have an account? 
+                  <a href="signup.html" class="text-[#1fe06f] font-medium">Sign up</a>
+                </p>
+              </div>
+              
+              <!-- Right Column - Image and Facts -->
+              <div class="hidden md:flex flex-col w-1/2 items-center">
+                <div class="bg-[#172119] rounded-2xl p-6 border border-[#29382f] w-full max-w-lg">
+                  <div class="h-56 bg-cover bg-center rounded-lg mb-6" style="background-image: url('https://cdn.usegalileo.ai/sdxl10/a4acdc6c-1001-4d87-9e64-9b900328581d.png')"></div>
+                  
+                  <h3 class="text-[#1fe06f] text-xl font-bold mb-4">Did You Know?</h3>
+                  
+                  <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                      <div class="text-[#1fe06f] mt-1">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                      <p class="text-white text-sm">Proper recycling can save up to 75% of the energy required to make products from raw materials.</p>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                      <div class="text-[#1fe06f] mt-1">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                      <p class="text-white text-sm">Recycling one aluminum can saves enough energy to run a TV for three hours.</p>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                      <div class="text-[#1fe06f] mt-1">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                      <p class="text-white text-sm">EcoCycle users have collectively diverted over 2.4 million pounds of waste from landfills in the past year!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="bg-[#0c100d] py-8 px-10 md:px-20 lg:px-40">
+          <div class="max-w-[960px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="size-4">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                        fill="#1fe06f"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h2 class="text-white text-lg font-bold">EcoCycle</h2>
+                </div>
+                <p class="text-[#9eb7a9] text-sm">Reduce, Reuse, Recycle.</p>
+              </div>
+              <div class="md:col-span-3">
+                <h3 class="text-white font-bold mb-4">Project made by:</h3>
+                <ul class="text-[#9eb7a9] text-sm space-y-2">
+                  <li>Tuhina Tripathi (RA2211003010423) - <a href="mailto:tt4102@srmist.edu.in" class="hover:text-[#1fe06f]">tt4102@srmist.edu.in</a></li>
+                  <li>Akanksha Rathore (RA2211003010396) - <a href="mailto:ar2846@srmist.edu.in" class="hover:text-[#1fe06f]">ar2846@srmist.edu.in</a></li>
+                  <li class="text-[#1fe06f] font-medium">Project Name: Ecocycle: revive, reuse, recycle</li>
+                </ul>
+              </div>
+            </div>
+            <div class="border-t border-[#29382f] mt-8 pt-6 text-[#9eb7a9] text-sm flex flex-col md:flex-row justify-between items-center">
+              <div class="mb-4 md:mb-0">© 2025 EcoCycle. All rights reserved.</div>
+              <div class="flex gap-6">
+                <a href="#" class="hover:text-[#1fe06f]">Privacy Policy</a>
+                <a href="#" class="hover:text-[#1fe06f]">Terms of Service</a>
+                <a href="#" class="hover:text-[#1fe06f]">Cookie Policy</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
