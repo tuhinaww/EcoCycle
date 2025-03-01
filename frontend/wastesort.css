@@ -1,0 +1,51 @@
+/* Zoom-in animation for images */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply zoom-in animation to images */
+.image-container img {
+  animation: zoomIn 1s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Delay animations for each image */
+.image-container:nth-child(1) img { animation-delay: 0.2s; }
+.image-container:nth-child(2) img { animation-delay: 0.4s; }
+.image-container:nth-child(3) img { animation-delay: 0.6s; }
+.image-container:nth-child(4) img { animation-delay: 0.8s; }
+
+.image-container:hover img {
+  transform: scale(1.05); /* Slightly zoom in */
+  filter: brightness(1.1); /* Slightly brighten the image */
+}
+  /* Delay animations for each card */
+  .organization-card:nth-child(1) { animation-delay: 0.2s; }
+  .organization-card:nth-child(2) { animation-delay: 0.4s; }
+  .organization-card:nth-child(3) { animation-delay: 0.6s; }
+  .organization-card:nth-child(4) { animation-delay: 0.8s; }
+  
+  /* Hover effect for images */
+.image-container img {
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05); /* Slightly zoom in on hover */
+}
+  /* Hover effect for buttons */
+  button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #17a052; /* Darker shade of green */
+    transform: scale(1.05); /* Slightly enlarge the button */
+  }

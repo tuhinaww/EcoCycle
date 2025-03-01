@@ -8,6 +8,7 @@
       onload="this.rel='stylesheet'"
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
     />
+    <link rel="stylesheet" href="wastesort.css" />
 
     <title>EcoCycle - Waste Sorting</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
@@ -244,17 +245,32 @@
                     </button></a>
                   </div>
                   <div class="grid grid-cols-2 gap-4">
-                    <div class="rounded-lg overflow-hidden">
-                      <a href="https://www.favecrafts.com/Green-Crafting/Plastic-Bottle-Hanging-Planters"><img src="https://irepo.primecp.com/2016/05/281606/Plastic-Bottle-Hanging-Planters_Large500_ID-1665889.jpg?v=1665889" alt="Plastic bottle planters" class="w-full h-full object-cover aspect-square"></a>
+                    <!-- Image 1 -->
+                    <div class="image-container rounded-lg overflow-hidden">
+                      <a href="https://www.favecrafts.com/Green-Crafting/Plastic-Bottle-Hanging-Planters">
+                        <img src="https://irepo.primecp.com/2016/05/281606/Plastic-Bottle-Hanging-Planters_Large500_ID-1665889.jpg?v=1665889" alt="Plastic bottle planters" class="w-full h-full object-cover aspect-square">
+                      </a>
                     </div>
-                    <div class="rounded-lg overflow-hidden">
-                      <a href="https://www.lightbulbs.com/blog/how-to-make-diy-glow-jar"><img src="https://www.lightbulbs.com/assets/blog/62/1.jpg" alt="Glass jar lights" class="w-full h-full object-cover aspect-square"></a>
+                    
+                    <!-- Image 2 -->
+                    <div class="image-container rounded-lg overflow-hidden">
+                      <a href="https://www.lightbulbs.com/blog/how-to-make-diy-glow-jar">
+                        <img src="https://www.lightbulbs.com/assets/blog/62/1.jpg" alt="Glass jar lights" class="w-full h-full object-cover aspect-square">
+                      </a>
                     </div>
-                    <div class="rounded-lg overflow-hidden">
-                      <a href="https://www.instructables.com/Rainbow-Recycled-Tin-Can-Pencil-Holder/"><img src="https://content.instructables.com/FOC/U6WK/L5LCMRAN/FOCU6WKL5LCMRAN.jpg?auto=webp&frame=1&width=1024&height=1024&fit=bounds&md=MjAyMi0wNy0xNCAyMjowMDozNy4w" alt="Tin can pencil holders" class="w-full h-full object-cover aspect-square"></a>
+                    
+                    <!-- Image 3 -->
+                    <div class="image-container rounded-lg overflow-hidden">
+                      <a href="https://www.instructables.com/Rainbow-Recycled-Tin-Can-Pencil-Holder/">
+                        <img src="https://content.instructables.com/FOC/U6WK/L5LCMRAN/FOCU6WKL5LCMRAN.jpg?auto=webp&frame=1&width=1024&height=1024&fit=bounds&md=MjAyMi0wNy0xNCAyMjowMDozNy4w" alt="Tin can pencil holders" class="w-full h-full object-cover aspect-square">
+                      </a>
                     </div>
-                    <div class="rounded-lg overflow-hidden">
-                      <a href="https://thefabhome.com/ways-to-organize-with-cardboard-boxes/"><img src="https://thefabhome.com/wp-content/uploads/2021/06/18_Ways-to-Organize-with-Cardboard-Boxes.jpg" alt="Cardboard organizers" class="w-full h-full object-cover aspect-square"></a>
+                    
+                    <!-- Image 4 -->
+                    <div class="image-container rounded-lg overflow-hidden">
+                      <a href="https://thefabhome.com/ways-to-organize-with-cardboard-boxes/">
+                        <img src="https://thefabhome.com/wp-content/uploads/2021/06/18_Ways-to-Organize-with-Cardboard-Boxes.jpg" alt="Cardboard organizers" class="w-full h-full object-cover aspect-square">
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -275,7 +291,7 @@
     
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
       <!-- Organization 1 -->
-      <div class="bg-[#111714] rounded-lg overflow-hidden">
+      <div class="organization-card bg-[#111714] rounded-lg overflow-hidden">
         <div class="h-40 bg-cover bg-center" style="background-image: url('https://saahaszerowaste.com/wp-content/uploads/2024/02/Circular-Impact-Report-2023.webp')"></div>
         <div class="p-3">
           <h4 class="text-white font-bold mb-1">Sahaas</h4>
@@ -287,7 +303,7 @@
       </div>
       
       <!-- Organization 2 -->
-      <div class="bg-[#111714] rounded-lg overflow-hidden">
+      <div class="organization-card bg-[#111714] rounded-lg overflow-hidden">
         <div class="h-40 bg-cover bg-center" style="background-image: url('https://recycleindiafoundation.com/images/04.jpg')"></div>
         <div class="p-3">
           <h4 class="text-white font-bold mb-1">Recycle India </h4>
@@ -299,7 +315,7 @@
       </div>
       
       <!-- Organization 3 -->
-      <div class="bg-[#111714] rounded-lg overflow-hidden">
+      <div class="organization-card bg-[#111714] rounded-lg overflow-hidden">
         <div class="h-40 bg-cover bg-center" style="background-image: url('https://www.banyannation.com/wp-content/uploads/2024/12/Life-at-Banyan_3.jpg')"></div>
         <div class="p-3">
           <h4 class="text-white font-bold mb-1">Banyan Nation</h4>
@@ -311,7 +327,7 @@
       </div>
       
       <!-- Organization 4 -->
-      <div class="bg-[#111714] rounded-lg overflow-hidden">
+      <div class="organization-card bg-[#111714] rounded-lg overflow-hidden">
         <div class="h-40 bg-cover bg-center" style="background-image: url('https://www.recharkha.org/cdn/shop/files/New_website_web_banner_1080x1000_1800_x_800_px_8.png?v=1737809125&width=3000')"></div>
         <div class="p-3">
           <h4 class="text-white font-bold mb-1">reCharkha</h4>
