@@ -214,6 +214,275 @@
                     </div>
                   </div>
                 </footer>
+                <!-- Chatbot Container -->
+<div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+  <!-- Chat Button -->
+  <button id="chat-button" class="flex items-center justify-center w-16 h-16 rounded-full bg-[#1fe06f] text-[#111714] shadow-lg hover:bg-[#19c761] transition-all duration-300">
+    <!-- Plant Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22c6.5-1 9-6.5 9-11 0-3-2-4-4-4-4 0-5 6-5 6s-1-6-5-6c-2 0-4 1-4 4 0 4.5 2.5 10 9 11z"/>
+      <path d="M12 22V15"/>
+    </svg>
+  </button>
+  
+  <!-- Chat Window -->
+  <div id="chat-window" class="hidden flex flex-col w-96 h-[500px] bg-white rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-300">
+    <!-- Chat Header -->
+    <div class="flex items-center justify-between bg-[#111714] px-6 py-4">
+      <div class="flex items-center">
+        <!-- Plant Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-[#1fe06f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22c6.5-1 9-6.5 9-11 0-3-2-4-4-4-4 0-5 6-5 6s-1-6-5-6c-2 0-4 1-4 4 0 4.5 2.5 10 9 11z"/>
+          <path d="M12 22V15"/>
+        </svg>
+        <span class="text-white font-bold text-lg">EcoCycle Assistant</span>
+      </div>
+      <button id="close-chat" class="text-white hover:text-[#1fe06f] p-1 rounded-full hover:bg-[#29382f] transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Chat Messages -->
+    <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-gray-50 space-y-4">
+      <div class="flex flex-col space-y-4">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 mr-3">
+            <div class="size-8 bg-[#111714] rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#1fe06f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c6.5-1 9-6.5 9-11 0-3-2-4-4-4-4 0-5 6-5 6s-1-6-5-6c-2 0-4 1-4 4 0 4.5 2.5 10 9 11z"/>
+                <path d="M12 22V15"/>
+              </svg>
+            </div>
+          </div>
+          <div class="bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%] shadow-sm border border-gray-100">
+            <p class="text-gray-800">👋 Hi there! I'm your EcoCycle assistant. How can I help you with recycling today?</p>
+          </div>
+        </div>
+        <!-- More messages will be added here dynamically -->
+      </div>
+    </div>
+    
+    <!-- Chat Input -->
+<div class="border-t border-gray-200 p-4 bg-white">
+  <div class="flex items-center rounded-full border border-gray-300 bg-white overflow-hidden focus-within:ring-2 focus-within:ring-[#1fe06f] focus-within:border-transparent">
+    <input id="chat-input" type="text" placeholder="Type your message..." class="flex-1 outline-none text-gray-700 border-none px-4 py-2">
+    <button id="send-message" class="bg-[#1fe06f] text-[#111714] p-2 rounded-full font-medium hover:bg-[#19c761] transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 2L11 13"/>
+        <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get elements
+  const chatButton = document.getElementById('chat-button');
+  const chatWindow = document.getElementById('chat-window');
+  const closeChat = document.getElementById('close-chat');
+  const chatMessages = document.getElementById('chat-messages');
+  const chatInput = document.getElementById('chat-input');
+  const sendMessage = document.getElementById('send-message');
+  
+  // Plant icon SVG with green color
+  const plantIconSVG = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22c6.5-1 9-6.5 9-11 0-3-2-4-4-4-4 0-5 6-5 6s-1-6-5-6c-2 0-4 1-4 4 0 4.5 2.5 10 9 11z"/>
+      <path d="M12 22V15"/>
+    </svg>
+  `;
+  
+  // Update the chat button HTML
+  chatButton.innerHTML = plantIconSVG;
+  
+  // Cohere API key and endpoint
+  const COHERE_API_KEY = 'vqTAy8oT835Zdr3JhSoiwjCkxNxWXO2Aif9n10JM';
+  const COHERE_API_URL = 'https://api.cohere.ai/v1/chat';
+  
+  // Chat history for context
+  let chatHistory = [];
+  
+  // Toggle chat window
+  chatButton.addEventListener('click', function() {
+    chatWindow.classList.toggle('hidden');
+    if (!chatWindow.classList.contains('hidden')) {
+      chatInput.focus();
+    }
+  });
+  
+  // Close chat window
+  closeChat.addEventListener('click', function() {
+    chatWindow.classList.add('hidden');
+  });
+  
+  // Add user message to chat
+  function addUserMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('flex', 'items-start', 'justify-end', 'mt-4');
+    messageElement.innerHTML = `
+      <div class="bg-[#1fe06f] p-4 rounded-2xl rounded-tr-none max-w-[80%] shadow-sm">
+        <p class="text-[#111714]">${message}</p>
+      </div>
+    `;
+    chatMessages.querySelector('.flex.flex-col').appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Add to chat history
+    chatHistory.push({
+      role: "USER",
+      message: message
+    });
+  }
+  
+  // Add bot message to chat
+  function addBotMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('flex', 'items-start', 'mt-4');
+    messageElement.innerHTML = `
+      <div class="flex-shrink-0 mr-3">
+        <div class="size-8 bg-[#111714] rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#1fe06f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c6.5-1 9-6.5 9-11 0-3-2-4-4-4-4 0-5 6-5 6s-1-6-5-6c-2 0-4 1-4 4 0 4.5 2.5 10 9 11z"/>
+            <path d="M12 22V15"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%] shadow-sm border border-gray-100">
+        <p class="text-gray-800">${message}</p>
+      </div>
+    `;
+    chatMessages.querySelector('.flex.flex-col').appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Add to chat history
+    chatHistory.push({
+      role: "CHATBOT",
+      message: message
+    });
+  }
+  
+  // Add loading indicator
+  function addLoadingIndicator() {
+    const loadingElement = document.createElement('div');
+    loadingElement.id = 'loading-indicator';
+    loadingElement.classList.add('flex', 'items-start', 'mt-4');
+    loadingElement.innerHTML = `
+      <div class="flex-shrink-0 mr-3">
+        <div class="size-8 bg-[#111714] rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#1fe06f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c6.5-1 9-6.5 9-11 0-3-2-4-4-4-4 0-5 6-5 6s-1-6-5-6c-2 0-4 1-4 4 0 4.5 2.5 10 9 11z"/>
+            <path d="M12 22V15"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-gray-100">
+        <div class="flex space-x-2">
+          <div class="size-2 bg-[#1fe06f] rounded-full animate-bounce opacity-75"></div>
+          <div class="size-2 bg-[#1fe06f] rounded-full animate-bounce opacity-75" style="animation-delay: 0.2s"></div>
+          <div class="size-2 bg-[#1fe06f] rounded-full animate-bounce opacity-75" style="animation-delay: 0.4s"></div>
+        </div>
+      </div>
+    `;
+    chatMessages.querySelector('.flex.flex-col').appendChild(loadingElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+  
+  // Remove loading indicator
+  function removeLoadingIndicator() {
+    const loadingIndicator = document.getElementById('loading-indicator');
+    if (loadingIndicator) {
+      loadingIndicator.remove();
+    }
+  }
+  
+  // Get response from Cohere API
+  async function getCohereResponse(message) {
+    try {
+      const response = await fetch(COHERE_API_URL, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${COHERE_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          message: message,
+          model: "command",
+          max_tokens: 500,
+          temperature: 0.7,
+          preamble: "You are an eco-friendly assistant for EcoCycle. Your name is EcoCycle Assistant. CRITICAL: Keep all responses under 200 words total and very concise. Don't use bullet points. Help users with recycling questions.",
+          chat_history: chatHistory
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to get response from Cohere API');
+      }
+      
+      const data = await response.json();
+      let text = data.text || "I'm sorry, I couldn't process your request right now.";
+      
+      // Remove any bullet points or markdown
+      text = text.replace(/•\s*/g, '');
+      text = text.replace(/\n+/g, ' ');
+      
+      return text;
+    } catch (error) {
+      console.error('Error getting response from Cohere:', error);
+      return "I'm having trouble connecting right now. Please try again later.";
+    }
+  }
+  
+  // Function to handle sending messages
+  async function sendUserMessage() {
+    const message = chatInput.value.trim();
+    if (message === '') return;
+    
+    // Add user message to chat
+    addUserMessage(message);
+    chatInput.value = '';
+    
+    // Add loading indicator
+    addLoadingIndicator();
+    
+    // Get response from Cohere
+    try {
+      const botResponse = await getCohereResponse(message);
+      
+      // Remove loading indicator and add bot response
+      removeLoadingIndicator();
+      addBotMessage(botResponse);
+    } catch (error) {
+      console.error('Error:', error);
+      // Remove loading indicator and show error message
+      removeLoadingIndicator();
+      addBotMessage("I'm having trouble connecting right now. Please try again later.");
+    }
+  }
+  
+  // Send message on button click
+  sendMessage.addEventListener('click', sendUserMessage);
+  
+  // Send message on Enter key press
+  chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      sendUserMessage();
+    }
+  });
+  
+  // Update all plant icons to ensure they're green
+  const allIcons = document.querySelectorAll('.text-[#1fe06f], .h-5.w-5');
+  allIcons.forEach(icon => {
+    if (icon.tagName === 'svg') {
+      icon.setAttribute('stroke', '#1fe06f');
+    }
+  });
+});
+</script>
     <script src="marketplace.js"></script>
   </body>
 </html>

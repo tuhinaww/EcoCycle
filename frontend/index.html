@@ -8,10 +8,8 @@
       onload="this.rel='stylesheet'"
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
     />
-
     <title>EcoCycle - Smarter Recycling</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
   <body>
@@ -243,13 +241,16 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatInput = document.getElementById('chat-input');
   const sendMessage = document.getElementById('send-message');
   
-  // Update all SVG icons with the tidyman icon
-  const tidymanIconURL = 'https://openclipart.org/download/307415/1538298822.svg';
+  // Plant icon SVG with green color
+  const plantIconSVG = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22c6.5-1 9-6.5 9-11 0-3-2-4-4-4-4 0-5 6-5 6s-1-6-5-6c-2 0-4 1-4 4 0 4.5 2.5 10 9 11z"/>
+      <path d="M12 22V15"/>
+    </svg>
+  `;
   
   // Update the chat button HTML
-  chatButton.innerHTML = `
-    <img src="${tidymanIconURL}" alt="EcoCycle" class="h-8 w-8 rounded-full">
-  `;
+  chatButton.innerHTML = plantIconSVG;
   
   // Cohere API key and endpoint
   const COHERE_API_KEY = 'vqTAy8oT835Zdr3JhSoiwjCkxNxWXO2Aif9n10JM';
@@ -292,26 +293,19 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Add bot message to chat
   function addBotMessage(message) {
-    // Convert to bullet points if not already in bullet format
-    let formattedMessage = message;
-    if (!message.includes('•') && !message.includes('<ul>') && !message.includes('<li>')) {
-      // Split by sentences and create bullet points (basic approach)
-      const sentences = message.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
-      if (sentences.length > 1) {
-        formattedMessage = sentences.map(sentence => `• ${sentence.trim()}`).join('<br>');
-      }
-    }
-    
     const messageElement = document.createElement('div');
     messageElement.classList.add('flex', 'items-start', 'mt-4');
     messageElement.innerHTML = `
       <div class="flex-shrink-0 mr-3">
-        <div class="size-8 bg-[#111714] rounded-full flex items-center justify-center overflow-hidden">
-          <img src="${tidymanIconURL}" alt="EcoCycle" class="h-8 w-8">
+        <div class="size-8 bg-[#111714] rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#1fe06f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c6.5-1 9-6.5 9-11 0-3-2-4-4-4-4 0-5 6-5 6s-1-6-5-6c-2 0-4 1-4 4 0 4.5 2.5 10 9 11z"/>
+            <path d="M12 22V15"/>
+          </svg>
         </div>
       </div>
       <div class="bg-white p-4 rounded-2xl rounded-tl-none max-w-[80%] shadow-sm border border-gray-100">
-        <p class="text-gray-800">${formattedMessage}</p>
+        <p class="text-gray-800">${message}</p>
       </div>
     `;
     chatMessages.querySelector('.flex.flex-col').appendChild(messageElement);
@@ -331,8 +325,11 @@ document.addEventListener('DOMContentLoaded', function() {
     loadingElement.classList.add('flex', 'items-start', 'mt-4');
     loadingElement.innerHTML = `
       <div class="flex-shrink-0 mr-3">
-        <div class="size-8 bg-[#111714] rounded-full flex items-center justify-center overflow-hidden">
-          <img src="${tidymanIconURL}" alt="EcoCycle" class="h-8 w-8">
+        <div class="size-8 bg-[#111714] rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#1fe06f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c6.5-1 9-6.5 9-11 0-3-2-4-4-4-4 0-5 6-5 6s-1-6-5-6c-2 0-4 1-4 4 0 4.5 2.5 10 9 11z"/>
+            <path d="M12 22V15"/>
+          </svg>
         </div>
       </div>
       <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-gray-100">
@@ -356,54 +353,42 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Get response from Cohere API
-async function getCohereResponse(message) {
-  try {
-    const response = await fetch(COHERE_API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${COHERE_API_KEY}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        message: message,
-        model: "command",
-        max_tokens: 100,  // Limit response length
-        temperature: 0.7, // Add some randomness to make responses more varied
-        preamble: "You are an eco-friendly assistant for EcoCycle. Your name is EcoCycle Assistant. CRITICAL: Keep all responses under 100 tokens total, as brief points (2-3 max). Help users with recycling questions. Be friendly but extremely concise.",
-        chat_history: chatHistory
-      })
-    });
-    
-    if (!response.ok) {
-      throw new Error('Failed to get response from Cohere API');
+  async function getCohereResponse(message) {
+    try {
+      const response = await fetch(COHERE_API_URL, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${COHERE_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          message: message,
+          model: "command",
+          max_tokens: 500,
+          temperature: 0.7,
+          preamble: "You are an eco-friendly assistant for EcoCycle. Your name is EcoCycle Assistant. CRITICAL: Keep all responses under 200 words total and very concise. Don't use bullet points. Help users with recycling questions.",
+          chat_history: chatHistory
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to get response from Cohere API');
+      }
+      
+      const data = await response.json();
+      let text = data.text || "I'm sorry, I couldn't process your request right now.";
+      
+      // Remove any bullet points or markdown
+      text = text.replace(/•\s*/g, '');
+      text = text.replace(/\n+/g, ' ');
+      
+      return text;
+    } catch (error) {
+      console.error('Error getting response from Cohere:', error);
+      return "I'm having trouble connecting right now. Please try again later.";
     }
-    
-    const data = await response.json();
-    
-    // Enforce length limit on client side too
-    let text = data.text || "I'm sorry, I couldn't process your request right now.";
-    
-    // Ensure response is in bullet format
-    if (!text.includes('•')) {
-      // Convert to bullets and limit to 3 points
-      const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
-      const limitedSentences = sentences.slice(0, 3);
-      text = limitedSentences.map(s => `• ${s.trim()}`).join('\n');
-    }
-    
-    // If still too long, truncate
-    const bulletPoints = text.split('\n');
-    if (bulletPoints.length > 3) {
-      text = bulletPoints.slice(0, 3).join('\n');
-    }
-    
-    return text;
-  } catch (error) {
-    console.error('Error getting response from Cohere:', error);
-    return "• I'm having trouble connecting right now.\n• Please try again later.";
   }
-}
   
   // Function to handle sending messages
   async function sendUserMessage() {
@@ -428,7 +413,7 @@ async function getCohereResponse(message) {
       console.error('Error:', error);
       // Remove loading indicator and show error message
       removeLoadingIndicator();
-      addBotMessage("• I'm having trouble connecting right now.\n• Please try again later.");
+      addBotMessage("I'm having trouble connecting right now. Please try again later.");
     }
   }
   
@@ -442,23 +427,26 @@ async function getCohereResponse(message) {
     }
   });
   
-  // Update the initial message avatar too
-  const initialMessageAvatar = chatMessages.querySelector('.flex.flex-col .flex.items-start .flex-shrink-0 .size-8');
-  if (initialMessageAvatar) {
-    initialMessageAvatar.innerHTML = `<img src="${tidymanIconURL}" alt="EcoCycle" class="h-8 w-8">`;
-  }
+  // Update all plant icons to ensure they're green
+  const allIcons = document.querySelectorAll('.text-[#1fe06f], .h-5.w-5');
+  allIcons.forEach(icon => {
+    if (icon.tagName === 'svg') {
+      icon.setAttribute('stroke', '#1fe06f');
+    }
+  });
 });
-      // Get the Learn More button and How It Works section
-      const learnMoreBtn = document.getElementById('learnMoreBtn');
-      const howItWorksSection = document.getElementById('howItWorks');
-      
-      // Add click event listener to the button
-      learnMoreBtn.addEventListener('click', function() {
-        // Scroll to the How It Works section smoothly
-        howItWorksSection.scrollIntoView({ 
-          behavior: 'smooth' 
-        });
-      });
-    </script>
+
+// Learn More button scroll functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const learnMoreBtn = document.getElementById('learnMoreBtn');
+  const howItWorksSection = document.getElementById('howItWorks');
+  
+  learnMoreBtn.addEventListener('click', function() {
+    howItWorksSection.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  });
+});
+</script>
   </body>
 </html>
