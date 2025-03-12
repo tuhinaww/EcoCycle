@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
   `;
   
   // Cohere API key and endpoint
-  const COHERE_API_KEY = 'vqTAy8oT835Zdr3JhSoiwjCkxNxWXO2Aif9n10M';
+  const COHERE_API_KEY = 'vqTAy8oT835Zdr3JhSoiwjCkxNxWXO2Aif9n10JM';
   const COHERE_API_URL = 'https://api.cohere.ai/v1/chat';
   
   // Chat history for context
@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Get response from Cohere API
-  async function getCohereResponse(message) {
+async function getCohereResponse(message) {
   try {
     const response = await fetch(COHERE_API_URL, {
       method: 'POST',
