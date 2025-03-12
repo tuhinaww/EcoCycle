@@ -370,7 +370,7 @@ async function getCohereResponse(message) {
         model: "command",
         max_tokens: 100,  // Limit response length
         temperature: 0.7, // Add some randomness to make responses more varied
-        preamble: "You are an eco-friendly assistant for EcoCycle. Your name is EcoCycle Assistant. CRITICAL: Keep all responses under 100 tokens total, as brief bullet points (2-3 max). Help users with recycling questions. Be friendly but extremely concise.",
+        preamble: "You are an eco-friendly assistant for EcoCycle. Your name is EcoCycle Assistant. CRITICAL: Keep all responses under 100 tokens total, as brief points (2-3 max). Help users with recycling questions. Be friendly but extremely concise.",
         chat_history: chatHistory
       })
     });
