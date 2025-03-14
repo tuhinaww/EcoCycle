@@ -48,66 +48,112 @@
         </div>
       </header>
 
-      <div class="px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-          <!-- Page Title Section -->
-          <div class="flex flex-col gap-4 mb-8 text-center">
-            <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
+      <div class="px-4 sm:px-8 md:px-12 lg:px-20 flex flex-1 justify-center py-8 bg-gradient-to-b from-[#0c1510] to-[#172119] min-h-screen">
+        <div class="layout-content-container flex flex-col max-w-[1080px] flex-1">
+          <!-- Page Title Section with improved spacing and animated gradient -->
+          <div class="flex flex-col gap-5 mb-10 text-center relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0e2718] via-[#194630] to-[#0e2718] opacity-20 blur-xl -z-10 rounded-3xl"></div>
+            <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-[#1fe06f] to-[#82f5b4]">
               Smart Waste Sorting
             </h1>
-            <p class="text-white text-base font-normal leading-normal max-w-[720px] mx-auto">
-              Upload an image of your waste item and our model will tell you whether it's recyclable and which bin to use.
-              You can also find creative ways to reuse your waste items!
+            <p class="text-white/90 text-base md:text-lg font-normal leading-relaxed max-w-[720px] mx-auto">
+              Upload an image of your waste item and our AI will identify whether it's recyclable and guide you to the right disposal method.
             </p>
           </div>
-
-          <!-- Upload Section -->
-          <div class="bg-[#172119] rounded-xl p-8 mb-8 border border-[#29382f]">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+          <!-- Main Content Card with improved shadows and border -->
+          <div class="bg-[#172119] rounded-2xl p-6 sm:p-8 mb-8 border border-[#29382f] shadow-lg shadow-[#0c1510]/50 backdrop-blur-sm relative overflow-hidden">
+            <!-- Subtle decorative element -->
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-[#1fe06f]/10 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-[#1fe06f]/5 rounded-full blur-2xl"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+              <!-- Upload Section with improved styling -->
               <div class="flex flex-col gap-4">
-                <h2 class="text-white text-2xl font-bold leading-tight">Upload Your Waste Image</h2>
-                <p class="text-[#9eb7a9]">Take a clear photo of your waste item against a plain background for the most accurate results.</p>
-
-                <div class="mt-4 border-2 border-dashed border-[#29382f] rounded-xl p-8 flex flex-col items-center justify-center bg-[#111714]">
-                  <svg class="w-16 h-16 text-[#1fe06f] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <h2 class="text-white text-2xl font-bold leading-tight flex items-center gap-2">
+                  <svg class="w-6 h-6 text-[#1fe06f]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                  Upload Your Waste Image
+                </h2>
+                <p class="text-[#9eb7a9] text-sm">Take a clear photo of your waste item against a plain background for the best results.</p>
+      
+                <div class="mt-4 border-2 border-dashed border-[#29382f] rounded-xl p-8 flex flex-col items-center justify-center bg-[#111714] hover:bg-[#131a16] transition-all duration-300 group relative overflow-hidden">
+                  <!-- Subtle glow effect on hover -->
+                  <div class="absolute inset-0 bg-[#1fe06f]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <svg class="w-16 h-16 text-[#1fe06f]/80 mb-4 group-hover:text-[#1fe06f] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                   </svg>
-                  <p class="text-white text-center mb-4">Drag and drop your image here or</p>
-                  <button class="flex cursor-pointer items-center justify-center rounded-xl h-10 px-6 bg-[#1fe06f] text-[#111714] text-sm font-bold" id="upload-btn">
+                  <p class="text-white text-center mb-4">Drag and drop your image here</p>
+                  <p class="text-[#9eb7a9] text-sm text-center mb-4">— or —</p>
+                  <button class="flex cursor-pointer items-center justify-center rounded-xl h-10 px-6 bg-gradient-to-r from-[#1fe06f] to-[#18b85a] text-[#111714] text-sm font-bold shadow-md shadow-[#1fe06f]/20 hover:shadow-lg hover:shadow-[#1fe06f]/30 transition-all duration-300 group-hover:scale-105" id="upload-btn">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
                     <span>Browse Files</span>
                   </button>
                   <input type="file" class="hidden" id="file-upload" accept="image/*">
                   <p class="text-[#9eb7a9] text-xs mt-4">Supported formats: JPG, PNG, WEBP (Max 10MB)</p>
                 </div>
+      
+                <!-- New: Adding a preview section -->
+                <div class="mt-4 hidden" id="image-preview-container">
+                  <h3 class="text-white text-sm font-medium mb-2">Image Preview</h3>
+                  <div class="bg-[#111714] rounded-lg p-2 flex justify-center">
+                    <img id="image-preview" class="max-h-48 rounded" src="" alt="Preview">
+                  </div>
+                </div>
               </div>
-
+      
+              <!-- Results Section with improved styling -->
               <div class="flex flex-col gap-4" id="result-container">
-                <h2 class="text-white text-2xl font-bold leading-tight">Analysis Results</h2>
-                <p class="text-[#9eb7a9] mb-4">Upload an image to see the results.</p>
-
+                <h2 class="text-white text-2xl font-bold leading-tight flex items-center gap-2">
+                  <svg class="w-6 h-6 text-[#1fe06f]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                  </svg>
+                  Analysis Results
+                </h2>
+                <p class="text-[#9eb7a9] text-sm mb-4">Upload an image to see the results.</p>
+      
                 <!-- Results will appear here (initially hidden) -->
                 <div class="hidden" id="results">
-                  <div class="bg-[#1a3a27] rounded-xl p-6 mb-4">
+                  <div class="bg-gradient-to-br from-[#1a3a27] to-[#183220] rounded-xl p-6 mb-4 border border-[#29382f]/50 shadow-inner">
                     <div class="flex items-center gap-3 mb-4">
-                      <svg class="w-8 h-8 text-[#1fe06f]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                      </svg>
+                      <div class="w-10 h-10 rounded-full bg-[#1fe06f]/20 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[#1fe06f]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                      </div>
                       <h3 class="text-white text-xl font-bold" id="waste-type">Recyclable</h3>
                     </div>
-                    <p class="text-white mb-2">This item is: <span class="text-[#1fe06f] font-bold" id="waste-category">Plastic Bottle</span></p>
-                    <p class="text-[#9eb7a9] mb-4">Confidence: <span id="confidence">98%</span></p>
-
+                    
+                    <div class="bg-[#111714]/50 p-4 rounded-lg mb-4">
+                      <p class="text-white mb-2">This item is: <span class="text-[#1fe06f] font-bold" id="waste-category">Plastic Bottle</span></p>
+                      <div class="w-full bg-[#29382f] rounded-full h-1.5 mt-2">
+                        <div class="bg-gradient-to-r from-[#1fe06f] to-[#18b85a] h-1.5 rounded-full" style="width: 98%"></div>
+                      </div>
+                      <p class="text-[#9eb7a9] text-xs mt-1 text-right">Confidence: <span id="confidence">98%</span></p>
+                    </div>
+      
                     <div class="border-t border-[#29382f] pt-4 mt-2">
-                      <h4 class="text-white font-bold mb-2">How to dispose:</h4>
-                      <div class="flex items-center gap-3 mb-2">
-                        <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <h4 class="text-white font-bold mb-3 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-[#1fe06f]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        How to dispose:
+                      </h4>
+                      <div class="flex items-center gap-3 mb-3 bg-[#111714]/30 p-3 rounded-lg">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-md shadow-blue-500/30">
                           <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"></path>
                           </svg>
                         </div>
                         <span class="text-white">Use the <span class="text-blue-500 font-bold" id="bin-color">BLUE recycling bin</span> for <span id="bin-waste-type">plastic bottles</span></span>
                       </div>
-                      <p class="text-[#9eb7a9] text-sm" id="disposal-instructions">Make sure to rinse the bottle and remove the cap before recycling.</p>
+                      <div class="bg-[#111714]/30 p-3 rounded-lg">
+                        <p class="text-[#9eb7a9] text-sm" id="disposal-instructions">Make sure to rinse the bottle and remove the cap before recycling.</p>
+                      </div>
                     </div>
                   </div>
 
